@@ -1,0 +1,13 @@
+<div id="body">
+    <form (ngSubmit)="update()">
+        <label for="txtTitulo">Titulo:</label>
+        <input id="txtTitulo" type="text" name="titulo" [(ngModel)]="tema.titulo">
+        <br>
+        <label for="txtContenido">Contenido: </label>
+        <textarea id="txtContenido" name="contenido" [(ngModel)]="tema.contenido"></textarea>
+        <br>
+        <button type="submit" id="subirForo">Actualizar</button>
+    </form>
+
+    <router-outlet></router-outlet>
+</div>

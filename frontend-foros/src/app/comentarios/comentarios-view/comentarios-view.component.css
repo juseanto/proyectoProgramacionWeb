@@ -1,0 +1,57 @@
+a {
+  text-decoration: none;
+}
+
+#body {
+  background-color: #efe2ba;
+}
+
+#boton {
+  margin-left: 35px;
+}
+#comentarios {
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  font-size: 20px;
+  margin-left: 30px;
+  margin-top: 30px;
+  margin-right: 40px;
+  margin-bottom: 10px;
+  padding: 35px;
+  border-radius: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#crearComentario {
+  border: 2px solid black;
+  border-radius: 30px;
+  font-size: 30px;
+  color: black;
+  padding: 10px;
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+form {
+  border: 2px solid black;
+  margin: 30px;
+  margin-right: 40px;
+  background-color: white;
+  padding-left: 20px;
+}
+
+#txtContenido {
+  border: 2px solid black;
+  height: 90px;
+  width: 300px;
+}
+
+#subirComentario {
+  font-size: 20px;
+  margin-bottom: 20px;
+}

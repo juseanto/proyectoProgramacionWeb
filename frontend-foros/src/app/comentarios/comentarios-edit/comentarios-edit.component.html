@@ -1,0 +1,10 @@
+<div id="body">
+    <form (ngSubmit)="update()">
+        <label for="txtContenido">Contenido: </label>
+        <textarea id="txtContenido" name="contenido" [(ngModel)]="comentario.contenido"></textarea>
+        <br>
+        <button type="submit" id="subirComentario">Actualizar</button>
+    </form>
+
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,39 @@
+<div id="body">
+    <form (ngSubmit)="doLogin()" id="formularioIngreso">
+        <input type="text" [(ngModel)]="user" name="user">
+        <input type="text" [(ngModel)]="password" name="pass">
+        <button type="submit" id="login">Login</button>
+    </form>
+    <button (click)="logout()">logout</button>
+    <pre>
+        {{message}}
+    </pre>
+    <pre>
+        Tipo: {{tipo}}
+    </pre>
+    <div *ngFor="let foro of foros">
+        <div id="foros">
+            <a [routerLink]="['/tema/view', foro.id]">
+                {{foro.name}}<br>
+                {{foro.descripcion}}
+            </a>
+        </div>
+        <button (click)="eliminarPost(foro.id)" id="boton" *ngIf="soyAdmin()">Eliminar</button>
+        <a [routerLink]="['/foro/edit', foro.id]">
+            <button id="boton">Modificar</button>
+        </a>
+    </div>
+
+    <button (click)="verFormulario()" id="crearForo" *ngIf="mostrarBotonCrearForo">+ Crear Foro</button>
+    <form (ngSubmit)="agregarForo()" *ngIf="mostrarFormulario">
+        <label for="txtNombre">Nombre:</label>
+        <input id="txtNombre" type="text" name="nombre" [(ngModel)]="foro.name">
+        <br>
+        <label for="txtDescripcion">Descripcion: </label>
+        <textarea id="txtDescripcion" name="descripcion" [(ngModel)]="foro.descripcion"></textarea>
+        <br>
+        <button type="submit" id="subirForo">Crear</button>
+    </form>
+
+    <router-outlet></router-outlet>
+</div>

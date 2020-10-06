@@ -1,0 +1,27 @@
+<div id="body">
+    <p>funciona</p>
+    <h1>{{tema.titulo}}</h1>
+    <h1>{{tema.contenido}}</h1>
+    <div *ngFor="let comentario of comentarios">
+        <div id="comentarios">
+            <p>
+                Usuario: {{comentario.creador}}
+            </p>
+            <p>
+                {{comentario.contenido}}
+            </p>
+        </div>
+        <button (click)="eliminarComentario(comentario.id)" id="boton">Eliminar</button>
+        <a [routerLink]="['/comentario/edit', comentario.id]">
+            <button id="boton">Modificar</button>
+        </a>
+    </div>
+
+    <button (click)="verFormulario()" id="crearComentario">+ Crear Comentario</button>
+    <form (ngSubmit)="agregarComentario()" *ngIf="mostrarFormulario">
+        <label for="txtContenido">Contenido: </label>
+        <textarea id="txtContenido" name="contenido" [(ngModel)]="comentario.contenido"></textarea>
+        <br>
+        <button type="submit" id="subirComentario">Crear</button>
+    </form>
+</div>

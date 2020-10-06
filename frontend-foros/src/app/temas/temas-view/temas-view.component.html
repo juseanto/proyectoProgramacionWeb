@@ -1,0 +1,27 @@
+<div>
+    <p>funciona</p>
+    <h1>{{foro.name}}</h1>
+    <div *ngFor="let tema of temas">
+        <div id="temas">
+            <a [routerLink]="['/comentario/view', tema.id]">
+                {{tema.titulo}}<br>
+                {{tema.contenido}}
+            </a>
+        </div>
+        <button (click)="eliminarTema(tema.id)" id="boton">Eliminar</button>
+        <a [routerLink]="['/tema/edit', tema.id]">
+            <button id="boton">Modificar</button>
+        </a>
+    </div>
+
+    <button (click)="verFormulario()" id="crearTema">+ Crear Tema</button>
+    <form (ngSubmit)="agregarTema()" *ngIf="mostrarFormulario">
+        <label for="txtTitulo">Titulo:</label>
+        <input id="txtTitulo" type="text" name="titulo" [(ngModel)]="tema.titulo">
+        <br>
+        <label for="txtContenido">Contenido: </label>
+        <textarea id="txtContenido" name="contenido" [(ngModel)]="tema.contenido"></textarea>
+        <br>
+        <button type="submit" id="subirTema">Crear</button>
+    </form>
+</div>
