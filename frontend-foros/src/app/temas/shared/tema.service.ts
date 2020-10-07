@@ -67,7 +67,7 @@ export class TemaService {
   }
 
   create(tema: Tema) {
-    const url = `${environment.BlogServiceBaseUrl}public/tema`;
+    const url = `http://localhost:8080/user/tema`;
     return this.post(url, {
       titulo: tema.titulo,
       contenido: tema.contenido,

@@ -46,7 +46,7 @@ public class TemaService {
     }
 
     // crear un nuevo tema
-    @PostMapping("/admin/tema")
+    @PostMapping("user/tema")
     Tema createTema(@RequestBody Tema tema) {
         return repository.save(tema);
     }

@@ -18,7 +18,7 @@
                 {{foro.descripcion}}
             </a>
         </div>
-        <button (click)="eliminarPost(foro.id)" id="boton" *ngIf="soyAdmin()">Eliminar</button>
+        <button (click)="eliminarPost(foro.id)" id="boton">Eliminar</button>
         <a [routerLink]="['/foro/edit', foro.id]">
             <button id="boton">Modificar</button>
         </a>
