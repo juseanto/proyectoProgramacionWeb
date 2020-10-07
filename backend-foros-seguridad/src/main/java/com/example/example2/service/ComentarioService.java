@@ -45,10 +45,12 @@ public class ComentarioService {
     // modificarInformacionAcercaDeUnComentario
     @PutMapping("public/comentario/{id}")
     Comentario updateComentario(@PathVariable Long id, @RequestBody Comentario comentarioData) {
-
+        System.out.println("!!!!!!!!!!!!!!!!! Aprobacion de comentario");
         Comentario comentario = findComentario(id);
+        
         comentario.setContenido(comentarioData.getContenido());
         comentario.setRespuesta(comentarioData.getRespuesta());
+        comentario.setAprobado(comentarioData.getAprobado());
 
         return repository.save(comentario);
     }

@@ -46,8 +46,15 @@ export class ComentarioService {
       );
   }
   private put<T>(url, data: T): Observable<T> {
-    console.log('put:', url);
-    return this.http.put<T>(url, data).pipe(
+    console.log("put:", url, 'data: ', data);
+    return this.http
+    .put<T>(url, data, {
+      withCredentials: true,
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+      }),
+    })
+    .pipe(
       // retry(5),
       catchError(this.handleError)
     );
@@ -84,8 +91,10 @@ export class ComentarioService {
 
   update(comentario: Comentario) {
     const url = `${environment.BlogServiceBaseUrl}public/comentario/${comentario.id}`;
+    console.log("Actualizacion de estado: " + comentario.aprobado);
     return this.put(url, {
       contenido: comentario.contenido,
+      aprobado: comentario.aprobado
     });
   }
 }

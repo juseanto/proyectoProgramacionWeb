@@ -2,25 +2,26 @@
 <!--Lista de moderacion para temas-->
 <h2 class="titulo">Temas que necesitan moderación</h2>
 <div *ngFor="let tema of temas">
-    <div id="temas">
-        <a [routerLink]="['/tema/view', tema.id]">
-            {{tema.titulo}}<br>
-            {{tema.contenido}}
-        </a>
-        <button (click) = "aprobarTema()">Aprobar tema</button>
-        <button>Rechazar tema</button>
+    <div id="temas" *ngIf="!tema.aprobado">
+        
+            Titulo: <a [routerLink]="['/tema/view', tema.id]">{{tema.titulo}}<br></a>
+            Estado: {{tema.aprobado}}<br>
+            Contenido: {{tema.contenido}}
+        
+        <button class="boton_moderar" (click)="aprobarTema(tema)">Aprobar tema</button>
+        <button class="boton_moderar">Rechazar tema</button>
     </div>
 </div>
 <!--Lista de moderacion para comentarios-->
 <h2 class="titulo">Comentarios que necesitan moderación</h2>
 <div *ngFor="let comentario of comentarios">
-    <div id="temas">
-        <a [routerLink]="['/tema/view', comentario.id]">
+    <div id="temas" *ngIf="!comentario.aprobado">
+        
             Creador: {{comentario.creador}}<br>
             Estado: {{comentario.aprobado}}<br>
-            Contenido: {{comentario.contenido}}
-        </a>
-    <button (click) = "aprobarComentario()">Aprobar comentario</button>
-    <button>Rechazar comentario</button>
+            Contenido: <a [routerLink]="['/tema/view', comentario.id]">{{comentario.contenido}}</a>
+        
+        <button class="boton_moderar" (click)="aprobarComentario(comentario)">Aprobar comentario</button>
+        <button class="boton_moderar">Rechazar comentario</button>
     </div>
 </div>

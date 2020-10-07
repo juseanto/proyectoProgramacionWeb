@@ -45,11 +45,25 @@ export class ForoModerarComponent implements OnInit {
     );
   }
 
-  aprobarTema(){
-
+  aprobarTema(temaSeleccionado: Tema){
+    console.log('Realmente quiere aprobar el tema: ' + temaSeleccionado.titulo);
+    temaSeleccionado.aprobado = true;
+    this.temaService.update(temaSeleccionado).subscribe(
+      (results) => {
+        console.log(results);
+      },
+      (error) => console.error(error)
+    );
   }
 
-  aprobarComentario(){
-    
+  aprobarComentario(comentarioSeleccionado: Comentario){
+    console.log('Realmente quiere aprobar el comentario: ' + comentarioSeleccionado.contenido);
+    comentarioSeleccionado.aprobado = true;
+    this.comentarioService.update(comentarioSeleccionado).subscribe(
+      (results) => {
+        console.log(results);
+      },
+      (error) => console.error(error)
+    );
   }
 }

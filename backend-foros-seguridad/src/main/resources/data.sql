@@ -72,11 +72,11 @@ values
 insert into tema
     (id, titulo, contenido, fecha, aprobado, foro_id)
 values
-    (-1, 'Tema1', 'CotenidoTema1', '06/10/2020', true, -1);
+    (-1, 'Tema1', 'CotenidoTema1', '06/10/2020', false, -1);
 insert into tema
     (id, titulo, contenido, fecha, aprobado, foro_id)
 values
-    (-2, 'Tema2', 'CotenidoTema2', '06/10/2020', true, -1);
+    (-2, 'Tema2', 'CotenidoTema2', '06/10/2020', false, -1);
 insert into tema
     (id, titulo, contenido, fecha, aprobado, foro_id)
 values
@@ -102,7 +102,7 @@ values
 insert into comentario
     (id, contenido, tema_id, creador, respuesta, fecha, aprobado)
 values
-    (-2, 'Comentario2', -1, 'pedro', 'juan', '06/10/2020', true);
+    (-2, 'Comentario2', -1, 'pedro', 'juan', '06/10/2020', false);
 
 insert into comentario
     (id, contenido, tema_id, creador, respuesta, fecha, aprobado)
@@ -117,4 +117,4 @@ values
 insert into comentario
     (id, contenido, tema_id, creador, respuesta, fecha, aprobado)
 values
-    (-5, 'Comentario5', -1, 'ortegon', 'tiba', '06/10/2020', true);
+    (-5, 'Comentario5', -1, 'ortegon', 'tiba', '06/10/2020', false);

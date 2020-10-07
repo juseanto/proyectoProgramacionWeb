@@ -30,6 +30,7 @@ public class TemaService {
     // imprimir Todos los temas
     @GetMapping("public/tema")
     Iterable<Tema> getTemas() {
+        System.out.println("!!!!!!!!!!!!!!!!! La impresion si funciona ");
         return repository.findAll();
     }
 
@@ -39,31 +40,35 @@ public class TemaService {
         return repository.findById(id).get().getComentarios();
     }
 
+    // modificar InformacionAcercaDeUnTema
+    @PutMapping("public/tema/{id}")
+    Tema updateTema(@PathVariable Long id, @RequestBody Tema temaData) {
+        System.out.println("Actualizando un tema!!!!!!!!!!!!!!!!! ");
+        Tema tema = findTema(id);
+        tema.setTitulo(temaData.getTitulo());
+        tema.setContenido(temaData.getContenido());
+        tema.setAprobado(temaData.getAprobado());
+
+        return repository.save(tema);
+    }
+
     // buscar un tema especifico por ID
     @GetMapping("public/tema/{id}")
     Tema findTema(@PathVariable Long id) {
+        System.out.println("!!!!!!!!!!!!!!!!! Buscando un tema " + id);
         return repository.findById(id).orElseThrow(() -> new NotFoundException("Tema not found"));
     }
 
     // crear un nuevo tema
-    @PostMapping("user/tema")
+    //@PostMapping("user/tema")
+    @PostMapping("public/tema")
     Tema createTema(@RequestBody Tema tema) {
-        return repository.save(tema);
-    }
-
-    // modificarInformacionAcercaDeUnTema
-    @PutMapping("user/tema/{id}")
-    Tema updateTema(@PathVariable Long id, @RequestBody Tema temaData) {
-
-        Tema tema = findTema(id);
-        tema.setTitulo(temaData.getTitulo());
-        tema.setContenido(temaData.getContenido());
-
+        System.out.println("!!!!!!!!!!!!!!!!! Creando un tema " + tema.getId());
         return repository.save(tema);
     }
 
     // borrar un tema
-    @DeleteMapping("user/tema/{id}")
+    @DeleteMapping("public/tema/{id}")
     void deleteTema(@PathVariable Long id) {
         if (repository.existsById(id)) {
             repository.deleteById(id);
