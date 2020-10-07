@@ -49,72 +49,72 @@ values
     (-8, 'employee9', 20, 2500, -2);
 
 insert into foro
-    (id, name, descripcion)
+    (id, name, descripcion, moderado)
 values
-    (-1, 'Foro1', 'DescricionForo1');
+    (-1, 'Foro1', 'DescricionForo1', false);
 insert into foro
-    (id, name, descripcion)
+    (id, name, descripcion, moderado)
 values
-    (-2, 'Foro2', 'DescricionForo2');
+    (-2, 'Foro2', 'DescricionForo2', false);
 insert into foro
-    (id, name, descripcion)
+    (id, name, descripcion, moderado)
 values
-    (-3, 'Foro3', 'DescricionForo3');
+    (-3, 'Foro3', 'DescricionForo3', false);
 insert into foro
-    (id, name, descripcion)
+    (id, name, descripcion, moderado)
 values
-    (-4, 'Foro4', 'DescricionForo4');
+    (-4, 'Foro4', 'DescricionForo4', false);
 insert into foro
-    (id, name, descripcion)
+    (id, name, descripcion, moderado)
 values
-    (-5, 'Foro5', 'DescricionForo5');
+    (-5, 'Foro5', 'DescricionForo5', false);
 
 insert into tema
-    (id, titulo, contenido, foro_id)
+    (id, titulo, contenido, fecha, aprobado, foro_id)
 values
-    (-1, 'Tema1', 'CotenidoTema1', -1);
+    (-1, 'Tema1', 'CotenidoTema1', '06/10/2020', true, -1);
 insert into tema
-    (id, titulo, contenido, foro_id)
+    (id, titulo, contenido, fecha, aprobado, foro_id)
 values
-    (-2, 'Tema2', 'CotenidoTema2', -1);
+    (-2, 'Tema2', 'CotenidoTema2', '06/10/2020', true, -1);
 insert into tema
-    (id, titulo, contenido, foro_id)
+    (id, titulo, contenido, fecha, aprobado, foro_id)
 values
-    (-3, 'Tema3', 'CotenidoTema3', -1);
+    (-3, 'Tema3', 'CotenidoTema3', '06/10/2020', true, -1);
 insert into tema
-    (id, titulo, contenido, foro_id)
+    (id, titulo, contenido, fecha, aprobado, foro_id)
 values
-    (-4, 'Tema4', 'CotenidoTema4', -2);
+    (-4, 'Tema4', 'CotenidoTema4', '06/10/2020', true, -2);
 insert into tema
-    (id, titulo, contenido, foro_id)
+    (id, titulo, contenido, fecha, aprobado, foro_id)
 values
-    (-5, 'Tema5', 'CotenidoTema5', -2);
+    (-5, 'Tema5', 'CotenidoTema5', '06/10/2020', true, -2);
 insert into tema
-    (id, titulo, contenido, foro_id)
+    (id, titulo, contenido, fecha, aprobado, foro_id)
 values
-    (-6, 'Tema6', 'CotenidoTema6', -4);
-
-insert into comentario
-    (id, contenido, tema_id, creador,respuesta)
-values
-    (-1, 'Comentario1', -1, 'mario', 'pepito');
+    (-6, 'Tema6', 'CotenidoTema6', '06/10/2020', true, -4);
 
 insert into comentario
-    (id, contenido, tema_id, creador,respuesta)
+    (id, contenido, tema_id, creador, respuesta, fecha, aprobado)
 values
-    (-2, 'Comentario2', -1, 'pedro', 'juan');
+    (-1, 'Comentario1', -1, 'mario', 'pepito', '06/10/2020', true);
 
 insert into comentario
-    (id, contenido, tema_id, creador,respuesta)
+    (id, contenido, tema_id, creador, respuesta, fecha, aprobado)
 values
-    (-3, 'Comentario3', -1, 'navaja', 'chicle');
+    (-2, 'Comentario2', -1, 'pedro', 'juan', '06/10/2020', true);
 
 insert into comentario
-    (id, contenido, tema_id, creador,respuesta)
+    (id, contenido, tema_id, creador, respuesta, fecha, aprobado)
 values
-    (-4, 'Comentario4', -1, 'maria', 'monica');
+    (-3, 'Comentario3', -1, 'navaja', 'chicle', '06/10/2020', true);
 
 insert into comentario
-    (id, contenido, tema_id, creador,respuesta)
+    (id, contenido, tema_id, creador, respuesta, fecha, aprobado)
 values
-    (-5, 'Comentario5', -1, 'ortegon', 'tiba');
+    (-4, 'Comentario4', -1, 'maria', 'monica', '06/10/2020', true);
+
+insert into comentario
+    (id, contenido, tema_id, creador, respuesta, fecha, aprobado)
+values
+    (-5, 'Comentario5', -1, 'ortegon', 'tiba', '06/10/2020', true);

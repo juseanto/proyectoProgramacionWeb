@@ -19,6 +19,8 @@ export class ComentariosViewComponent implements OnInit {
     undefined,
     undefined,
     undefined,
+    undefined,
+    undefined,
     undefined
   );
   respuesta: Comentario = new Comentario(
@@ -26,9 +28,11 @@ export class ComentariosViewComponent implements OnInit {
     undefined,
     undefined,
     undefined,
+    undefined,
+    undefined,
     undefined
   );
-  tema: Tema = new Tema(undefined, undefined, undefined, undefined);
+  tema: Tema = new Tema(undefined, undefined, undefined, undefined, undefined, undefined);
   mostrarFormulario = false;
   boxRespuesta = false;
   constructor(

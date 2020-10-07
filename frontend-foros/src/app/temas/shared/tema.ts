@@ -4,7 +4,8 @@ export class Tema {
     public id: number,
     public titulo: string,
     public contenido: string,
-    //public fecha: string,
+    public fecha: string,
+    public aprobado: boolean,
     public foro: Foro
   ) {}
 }

@@ -12,6 +12,7 @@ import { ForoEditComponent } from './foros/foro-edit/foro-edit.component';
 import { TemaEditComponent } from './temas/tema-edit/tema-edit.component';
 import { ComentariosEditComponent } from './comentarios/comentarios-edit/comentarios-edit.component';
 import { RestClientService } from './services/rest-client.service';
+import { ForoModerarComponent } from './foros/foro-moderar/foro-moderar.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { RestClientService } from './services/rest-client.service';
     ForoEditComponent,
     TemaEditComponent,
     ComentariosEditComponent,
+    ForoModerarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [RestClientService],

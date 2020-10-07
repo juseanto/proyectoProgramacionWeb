@@ -6,6 +6,7 @@ import { ForoViewComponent } from './foros/foro-view/foro-view.component';
 import { ForoEditComponent } from './foros/foro-edit/foro-edit.component';
 import { TemaEditComponent } from './temas/tema-edit/tema-edit.component';
 import { ComentariosEditComponent } from './comentarios/comentarios-edit/comentarios-edit.component';
+import { ForoModerarComponent } from './foros/foro-moderar/foro-moderar.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/foro/view' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'comentario/edit/:id', component: ComentariosEditComponent },
   { path: 'foro/edit/:id', component: ForoEditComponent },
   { path: 'tema/edit/:id', component: TemaEditComponent },
+  { path: 'foro/moderar', component: ForoModerarComponent }
 ];
 
 @NgModule({

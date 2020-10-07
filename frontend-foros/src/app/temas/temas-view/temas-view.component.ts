@@ -14,8 +14,8 @@ import { RestClientService } from '../../services/rest-client.service';
 })
 export class TemasViewComponent implements OnInit {
   temas: Tema[] = [];
-  foro: Foro = new Foro(undefined, undefined, undefined);
-  tema: Tema = new Tema(undefined, undefined, undefined, undefined);
+  foro: Foro = new Foro(undefined, undefined, undefined, undefined);
+  tema: Tema = new Tema(undefined, undefined, undefined, undefined, undefined, undefined);
   mostrarFormulario = false;
   constructor(
     private temaService: TemaService,

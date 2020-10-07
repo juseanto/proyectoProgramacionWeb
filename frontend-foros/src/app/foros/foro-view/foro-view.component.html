@@ -25,12 +25,16 @@
     </div>
 
     <button (click)="verFormulario()" id="crearForo" *ngIf="mostrarBotonCrearForo">+ Crear Foro</button>
+    <a [routerLink]="['/foro/moderar']"><button id="mostrarModerar">+ Moderar contenidos</button></a>
     <form (ngSubmit)="agregarForo()" *ngIf="mostrarFormulario">
         <label for="txtNombre">Nombre:</label>
         <input id="txtNombre" type="text" name="nombre" [(ngModel)]="foro.name">
         <br>
         <label for="txtDescripcion">Descripcion: </label>
         <textarea id="txtDescripcion" name="descripcion" [(ngModel)]="foro.descripcion"></textarea>
+        <br>
+        <label for="checkboxforo">El foro requiere ser moderado</label>
+        <input (change) = moderarForo() type="checkbox" id="checkboxforo">
         <br>
         <button type="submit" id="subirForo">Crear</button>
     </form>

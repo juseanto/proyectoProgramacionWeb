@@ -21,7 +21,8 @@ public class Tema {
 
     private String titulo;
     private String contenido;
-    private String fechaCreacion;
+    private String fecha;
+    private boolean aprobado;
 
     @ManyToOne
     private Foro foro;
@@ -75,15 +76,29 @@ public class Tema {
     /**
      * @return the fechaCreacion
      */
-    public String getFechaCreacion() {
-        return fechaCreacion;
+    public String getFecha() {
+        return this.fecha;
     }
 
     /**
      * @param name the name to set
      */
-    public void setFechaCreacion(String fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    /**
+     * @return the aprobado
+     */
+    public boolean getAprobado() {
+        return this.aprobado;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setAprobado(boolean aprobado) {
+        this.aprobado = aprobado;
     }
 
     /**

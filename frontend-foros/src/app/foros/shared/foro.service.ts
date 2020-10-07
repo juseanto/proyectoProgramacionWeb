@@ -85,6 +85,7 @@ export class ForoService {
     return this.post(url, {
       name: foro.name,
       descripcion: foro.descripcion,
+      moderado: foro.moderado
     });
   }
 

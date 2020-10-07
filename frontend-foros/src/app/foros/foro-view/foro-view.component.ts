@@ -13,7 +13,7 @@ export class ForoViewComponent implements OnInit {
   foros: Foro[] = [];
   mostrarFormulario = false;
   searchId: number = null;
-  mostrarBotonCrearForo = false;
+  mostrarBotonCrearForo = true;
 
   user = 'user';
   password = 'password';
@@ -23,7 +23,7 @@ export class ForoViewComponent implements OnInit {
 
   message: any;
 
-  foro: Foro = new Foro(undefined, undefined, undefined);
+  foro: Foro = new Foro(undefined, undefined, undefined, false);
 
   mostrarEliminar = false;
   mostrarModificar = false;
@@ -53,11 +53,11 @@ export class ForoViewComponent implements OnInit {
   }
 
   agregarForo(): void {
-    window.location.reload();
     this.foroService.create(this.foro).subscribe(
       (result) => {
         console.log(result);
-        this.router.navigate([`/public/foro`]);
+        window.location.reload();
+        //this.router.navigate([`/public/foro`]);
       },
       (error) => {
         console.error(error);
@@ -140,12 +140,18 @@ export class ForoViewComponent implements OnInit {
       (data) => {
         this.tipo = 'Eres user';
         this.restClient.tipo = 'Eres user';
-        this.mostrarBotonCrearForo = false;
+        /*quemado!!!!*/
+        this.mostrarBotonCrearForo = true;
         this.mostrarEliminar = true;
         this.mostrarModificar = true;
       },
       (error) => {}
     );
     return false;
+  }
+
+  moderarForo()
+  {
+    this.foro.moderado = !this.foro.moderado;
   }
 }

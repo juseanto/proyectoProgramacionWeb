@@ -1,0 +1,26 @@
+<p>foro-moderar works!</p>
+<!--Lista de moderacion para temas-->
+<h2 class="titulo">Temas que necesitan moderación</h2>
+<div *ngFor="let tema of temas">
+    <div id="temas">
+        <a [routerLink]="['/tema/view', tema.id]">
+            {{tema.titulo}}<br>
+            {{tema.contenido}}
+        </a>
+        <button (click) = "aprobarTema()">Aprobar tema</button>
+        <button>Rechazar tema</button>
+    </div>
+</div>
+<!--Lista de moderacion para comentarios-->
+<h2 class="titulo">Comentarios que necesitan moderación</h2>
+<div *ngFor="let comentario of comentarios">
+    <div id="temas">
+        <a [routerLink]="['/tema/view', comentario.id]">
+            Creador: {{comentario.creador}}<br>
+            Estado: {{comentario.aprobado}}<br>
+            Contenido: {{comentario.contenido}}
+        </a>
+    <button (click) = "aprobarComentario()">Aprobar comentario</button>
+    <button>Rechazar comentario</button>
+    </div>
+</div>

@@ -19,6 +19,8 @@ public class Foro {
 
     private String name;
     private String descripcion;
+    private boolean moderado;
+
 
     // un tema tiene muchos fors
     @OneToMany(mappedBy = "foro", cascade = CascadeType.ALL)
@@ -71,6 +73,20 @@ public class Foro {
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    /**
+     * @return si el foro es moderado
+     */
+    public boolean getModerado() {
+        return this.moderado;
+    }
+
+    /**
+     * @param moderado
+     */
+    public void setModerado(boolean moderado) {
+        this.moderado = moderado;
     }
 
     /**

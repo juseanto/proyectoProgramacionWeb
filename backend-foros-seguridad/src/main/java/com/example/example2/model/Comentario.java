@@ -20,6 +20,8 @@ public class Comentario {
     private String contenido;
     private String creador;
     private String respuesta;
+    private String fecha;
+    private boolean aprobado;
 
     @ManyToOne
     private Tema tema;
@@ -83,17 +85,32 @@ public class Comentario {
     /**
      * @return the fechaCreacion
      */
-    /*
-     * public String getFechaCreacion() { return fechaCreacion; }
-     */
-
+    
+    public String getFecha() 
+    { 
+        return this.fecha; 
+    }
+    
     /**
-     * @param name the name to set
+     * @param fecha de creacion
      */
-    /*
-     * public void setFechaCreacion(String fechaCreacion) { this.fechaCreacion =
-     * fechaCreacion; }
+    public void setFecha(String fecha) 
+    { 
+        this.fecha = fecha; 
+    }
+
+    public boolean getAprobado() 
+    { 
+        return this.aprobado; 
+    }
+    
+    /**
+     * @param aprobado de moderacion
      */
+    public void setAprobado(boolean aprobado) 
+    { 
+        this.aprobado = aprobado; 
+    }
 
     /**
      * @return the tema

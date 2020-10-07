@@ -5,6 +5,8 @@ export class Comentario {
     public contenido: string,
     public tema: Tema,
     public creador: string,
-    public respuesta: string
+    public respuesta: string,
+    public fecha: string ,
+    public aprobado: boolean,
   ) {}
 }
