@@ -19,6 +19,7 @@ public class Comentario {
 
     private String contenido;
     private String creador;
+    private String respuesta;
 
     @ManyToOne
     private Tema tema;
@@ -35,6 +36,20 @@ public class Comentario {
      */
     public void setId(Long id) {
         this.id = id;
+    }
+
+    /**
+     * @return the respuesta
+     */
+    public String getRespuesta() {
+        return respuesta;
+    }
+
+    /**
+     * @param respuesta the respuesta to set
+     */
+    public void setRespuesta(String respuesta) {
+        this.respuesta = respuesta;
     }
 
     /**

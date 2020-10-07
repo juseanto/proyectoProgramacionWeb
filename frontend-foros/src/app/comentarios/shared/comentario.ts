@@ -4,6 +4,7 @@ export class Comentario {
     public id: number,
     public contenido: string,
     public tema: Tema,
-    public creador: string
+    public creador: string,
+    public respuesta: string
   ) {}
 }

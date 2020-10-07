@@ -35,6 +35,7 @@ export class ComentarioService {
     console.log('post:', url);
     return this.http
       .post<T>(url, data, {
+        withCredentials: true,
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
         }),
@@ -72,11 +73,12 @@ export class ComentarioService {
   }
 
   create(comentario: Comentario) {
-    const url = `${environment.BlogServiceBaseUrl}public/comentario`;
+    const url = `${environment.BlogServiceBaseUrl}user/comentario`;
     return this.post(url, {
       contenido: comentario.contenido,
       tema: comentario.tema,
       creador: comentario.creador,
+      respuesta: comentario.respuesta,
     });
   }
 

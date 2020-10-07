@@ -37,7 +37,7 @@ public class ComentarioService {
     }
 
     // crear un nuevo comentario
-    @PostMapping("public/comentario")
+    @PostMapping("user/comentario")
     Comentario createComentario(@RequestBody Comentario comentario) {
         return repository.save(comentario);
     }
@@ -48,9 +48,7 @@ public class ComentarioService {
 
         Comentario comentario = findComentario(id);
         comentario.setContenido(comentarioData.getContenido());
-        // comentario.setName(comentarioData.getName());
-
-        // How to update the employer Company?
+        comentario.setRespuesta(comentarioData.getRespuesta());
 
         return repository.save(comentario);
     }

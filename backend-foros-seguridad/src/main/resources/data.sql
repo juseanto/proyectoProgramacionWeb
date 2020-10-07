@@ -95,26 +95,26 @@ values
     (-6, 'Tema6', 'CotenidoTema6', -4);
 
 insert into comentario
-    (id, contenido, tema_id, creador)
+    (id, contenido, tema_id, creador,respuesta)
 values
-    (-1, 'Comentario1', -1, 'user');
+    (-1, 'Comentario1', -1, 'mario', 'pepito');
 
 insert into comentario
-    (id, contenido, tema_id, creador)
+    (id, contenido, tema_id, creador,respuesta)
 values
-    (-2, 'Comentario2', -1, 'user');
+    (-2, 'Comentario2', -1, 'pedro', 'juan');
 
 insert into comentario
-    (id, contenido, tema_id, creador)
+    (id, contenido, tema_id, creador,respuesta)
 values
-    (-3, 'Comentario3', -1, 'user');
+    (-3, 'Comentario3', -1, 'navaja', 'chicle');
 
 insert into comentario
-    (id, contenido, tema_id, creador)
+    (id, contenido, tema_id, creador,respuesta)
 values
-    (-4, 'Comentario4', -1, 'user');
+    (-4, 'Comentario4', -1, 'maria', 'monica');
 
 insert into comentario
-    (id, contenido, tema_id, creador)
+    (id, contenido, tema_id, creador,respuesta)
 values
-    (-5, 'Comentario5', -1, 'user');
+    (-5, 'Comentario5', -1, 'ortegon', 'tiba');

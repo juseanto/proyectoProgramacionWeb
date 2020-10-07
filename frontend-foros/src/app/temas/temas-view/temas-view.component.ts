@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Foro } from '../../foros/shared/foro';
 import { ForoService } from '../../foros/shared/foro.service';
 import { switchMap } from 'rxjs/operators';
+import { RestClientService } from '../../services/rest-client.service';
 
 @Component({
   selector: 'app-temas-view',
@@ -20,7 +21,8 @@ export class TemasViewComponent implements OnInit {
     private temaService: TemaService,
     private foroService: ForoService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private clientService: RestClientService
   ) {}
 
   ngOnInit(): void {
@@ -46,7 +48,6 @@ export class TemasViewComponent implements OnInit {
 
   agregarTema(): void {
     this.tema.foro = this.foro;
-    //window.location.reload();
     this.temaService.create(this.tema).subscribe(
       (result) => {
         console.log(result);
@@ -54,8 +55,6 @@ export class TemasViewComponent implements OnInit {
       },
       (error) => {
         console.error(error);
-        //this.errorMessage = error.toString();
-        //this.submitted = false;
       }
     );
     this.mostrarFormulario = false;

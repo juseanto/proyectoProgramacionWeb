@@ -62,11 +62,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/public/**", "/login/**").permitAll()
                 // Uncomment this to enable H2 console
                 // .antMatchers("/h2/**").permitAll()
-                .antMatchers("/admin/**").hasRole("ADMIN")// .anyRequest().authenticated().and().formLogin()
-                .antMatchers("/user/**").hasRole("USER").antMatchers("/moderator/**").hasRole("MODERATOR").anyRequest()
-                .authenticated().and().formLogin().successHandler(successHandler)
-                .failureHandler(new SimpleUrlAuthenticationFailureHandler()).and().logout()
-                .logoutSuccessHandler(logoutSuccessHandler).and()
+                /*
+                 * .antMatchers("/admin/**").hasRole("ADMIN")//
+                 * .anyRequest().authenticated().and().formLogin()
+                 * .antMatchers("/user/**").hasRole("USER").antMatchers("/moderator/**").hasRole
+                 * ("MODERATOR")
+                 */.antMatchers("/user/**").hasRole("USER").anyRequest().authenticated().and().formLogin()
+                .successHandler(successHandler).failureHandler(new SimpleUrlAuthenticationFailureHandler()).and()
+                .logout().logoutSuccessHandler(logoutSuccessHandler).and()
         // Uncomment this to enable H2 console
         // .headers().frameOptions().disable()
         ;

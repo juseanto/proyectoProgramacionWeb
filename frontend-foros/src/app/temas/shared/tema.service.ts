@@ -25,6 +25,7 @@ export class TemaService {
     console.log('get:', url);
     return this.http
       .get<T>(url, {
+        withCredentials: true,
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
           Accept: 'application/json',
@@ -37,6 +38,7 @@ export class TemaService {
     console.log('post:', url);
     return this.http
       .post<T>(url, data, {
+        withCredentials: true,
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
         }),

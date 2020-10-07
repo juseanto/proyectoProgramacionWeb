@@ -10,11 +10,22 @@
             <p>
                 {{comentario.contenido}}
             </p>
+            <p *ngIf="comentario.respuesta">
+                Respuesta:{{comentario.respuesta}}
+            </p>
         </div>
         <button (click)="eliminarComentario(comentario.id)" id="boton">Eliminar</button>
         <a [routerLink]="['/comentario/edit', comentario.id]">
             <button id="boton">Modificar</button>
         </a>
+        <button (click)="mostrarCajaRespuesta(comentario.id)" id="boton">Responder</button>
+        <form (ngSubmit)="responderComentario(comentario.id)" *ngIf="!comentario.id">
+            <label for="txtContenido">Contenido: </label>
+            <textarea id="txtContenido" name="contenido" [(ngModel)]="respuesta.contenido"></textarea>
+            <br>
+            <button type="submit" id="subirComentario">Crear</button>
+            <button (click)="cerrarCajaRespuesta(comentario.id)">Cerrar</button>
+        </form>
     </div>
 
     <button (click)="verFormulario()" id="crearComentario">+ Crear Comentario</button>

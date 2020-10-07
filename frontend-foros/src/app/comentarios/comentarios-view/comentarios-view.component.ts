@@ -18,11 +18,19 @@ export class ComentariosViewComponent implements OnInit {
     undefined,
     undefined,
     undefined,
+    undefined,
+    undefined
+  );
+  respuesta: Comentario = new Comentario(
+    undefined,
+    undefined,
+    undefined,
+    undefined,
     undefined
   );
   tema: Tema = new Tema(undefined, undefined, undefined, undefined);
   mostrarFormulario = false;
-
+  boxRespuesta = false;
   constructor(
     private temaService: TemaService,
     private comentarioService: ComentarioService,
@@ -52,6 +60,37 @@ export class ComentariosViewComponent implements OnInit {
 
   verFormulario() {
     this.mostrarFormulario = true;
+  }
+
+  mostrarCajaRespuesta(id: number) {
+    let aux = this.comentarios.find((coment) => coment.id === id);
+    console.log(aux);
+    this.respuesta.respuesta = aux.creador;
+    console.log(this.respuesta.respuesta);
+
+    aux.id = 0;
+  }
+
+  cerrarCajaRespuesta(id: number) {
+    let aux = this.comentarios.find((coment) => coment.id === id);
+    aux.id = 1;
+  }
+
+  responderComentario(id: number) {
+    let aux = this.comentarios.find((coment) => coment.id === id);
+    this.respuesta.tema = this.tema;
+    this.respuesta.creador = this.restClient.nombre;
+    //this.respuesta.respuesta = aux.creador;
+    this.comentarioService.create(this.respuesta).subscribe(
+      (result) => {
+        console.log(result);
+        window.location.reload();
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+    this.mostrarFormulario = false;
   }
 
   agregarComentario(): void {
