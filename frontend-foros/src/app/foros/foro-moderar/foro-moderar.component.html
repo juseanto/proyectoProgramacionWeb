@@ -1,27 +1,28 @@
-<p>foro-moderar works!</p>
-<!--Lista de moderacion para temas-->
-<h2 class="titulo">Temas que necesitan moderación</h2>
-<div *ngFor="let tema of temas">
-    <div id="temas" *ngIf="!tema.aprobado">
-        
+<body id="cuerpo">
+    <!--Lista de moderacion para temas-->
+    <h2 class="titulo">Temas que necesitan moderación</h2>
+    <div *ngFor="let tema of temas">
+        <div id="temas" *ngIf="!tema.aprobado">
+
             Titulo: <a [routerLink]="['/tema/view', tema.id]">{{tema.titulo}}<br></a>
             Estado: {{tema.aprobado}}<br>
             Contenido: {{tema.contenido}}
-        
-        <button class="boton_moderar" (click)="aprobarTema(tema)">Aprobar tema</button>
-        <button class="boton_moderar">Rechazar tema</button>
+
+            <button class="boton_moderar" (click)="aprobarTema(tema)">Aprobar tema</button>
+            <button class="boton_moderar" (click)="rechazarTema(tema)">Rechazar tema</button>
+        </div>
     </div>
-</div>
-<!--Lista de moderacion para comentarios-->
-<h2 class="titulo">Comentarios que necesitan moderación</h2>
-<div *ngFor="let comentario of comentarios">
-    <div id="temas" *ngIf="!comentario.aprobado">
-        
+    <!--Lista de moderacion para comentarios-->
+    <h2 class="titulo">Comentarios que necesitan moderación</h2>
+    <div *ngFor="let comentario of comentarios">
+        <div id="temas" *ngIf="!comentario.aprobado">
+
             Creador: {{comentario.creador}}<br>
             Estado: {{comentario.aprobado}}<br>
             Contenido: <a [routerLink]="['/tema/view', comentario.id]">{{comentario.contenido}}</a>
-        
-        <button class="boton_moderar" (click)="aprobarComentario(comentario)">Aprobar comentario</button>
-        <button class="boton_moderar">Rechazar comentario</button>
+
+            <button class="boton_moderar" (click)="aprobarComentario(comentario)">Aprobar comentario</button>
+            <button class="boton_moderar" (click)="rechazarComentario(comentario)">Rechazar comentario</button>
+        </div>
     </div>
-</div>
+</body>

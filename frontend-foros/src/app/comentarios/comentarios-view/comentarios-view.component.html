@@ -1,9 +1,8 @@
 <div id="body">
-    <p>funciona</p>
     <h1>{{tema.titulo}}</h1>
     <h1>{{tema.contenido}}</h1>
     <div *ngFor="let comentario of comentarios">
-        <div id="comentarios">
+        <div id="comentarios" *ngIf="comentario.aprobado">
             <p>
                 Usuario: {{comentario.creador}}
             </p>
@@ -13,12 +12,12 @@
             <p *ngIf="comentario.respuesta">
                 Respuesta:{{comentario.respuesta}}
             </p>
-        </div>
-        <button (click)="eliminarComentario(comentario.id)" id="boton">Eliminar</button>
+            <button (click)="eliminarComentario(comentario.id)" id="boton">Eliminar</button>
         <a [routerLink]="['/comentario/edit', comentario.id]">
             <button id="boton">Modificar</button>
         </a>
         <button (click)="mostrarCajaRespuesta(comentario.id)" id="boton">Responder</button>
+        </div>
         <form (ngSubmit)="responderComentario(comentario.id)" *ngIf="!comentario.id">
             <label for="txtContenido">Contenido: </label>
             <textarea id="txtContenido" name="contenido" [(ngModel)]="respuesta.contenido"></textarea>

@@ -70,6 +70,7 @@ public class TemaService {
     // borrar un tema
     @DeleteMapping("public/tema/{id}")
     void deleteTema(@PathVariable Long id) {
+        System.out.println("!!!!!!!!!!Eliminando tema");
         if (repository.existsById(id)) {
             repository.deleteById(id);
         } else {

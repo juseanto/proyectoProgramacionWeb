@@ -45,11 +45,24 @@ export class ForoModerarComponent implements OnInit {
     );
   }
 
-  aprobarTema(temaSeleccionado: Tema){
+  aprobarTema(temaSeleccionado: Tema)
+  {
     console.log('Realmente quiere aprobar el tema: ' + temaSeleccionado.titulo);
     temaSeleccionado.aprobado = true;
     this.temaService.update(temaSeleccionado).subscribe(
       (results) => {
+        console.log(results);
+      },
+      (error) => console.error(error)
+    );
+  }
+
+  rechazarTema(temaSeleccionado: Tema)
+  {
+    console.log('Realmente quiere eliminar el tema: ' + temaSeleccionado.titulo);
+    this.temaService.deleteTema(temaSeleccionado.id).subscribe(
+      (results) => {
+        this.cargarTemas();
         console.log(results);
       },
       (error) => console.error(error)
@@ -66,4 +79,17 @@ export class ForoModerarComponent implements OnInit {
       (error) => console.error(error)
     );
   }
+
+  rechazarComentario(comentarioSeleccionado: Comentario){
+    console.log('Realmente quiere aprobar el comentario: ' + comentarioSeleccionado.contenido);
+    this.comentarioService.deleteComentario(comentarioSeleccionado.id).subscribe(
+      (results) => {
+        console.log(results);
+        this.cargarComentario();
+      },
+      (error) => console.error(error)
+    );
+  }
+
+
 }

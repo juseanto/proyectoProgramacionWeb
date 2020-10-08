@@ -1,17 +1,16 @@
 <div>
-    <p>funciona</p>
     <h1>{{foro.name}}</h1>
     <div *ngFor="let tema of temas">
-        <div id="temas">
+        <div id="temas" *ngIf="tema.aprobado">
             <a [routerLink]="['/comentario/view', tema.id]">
                 {{tema.titulo}}<br>
                 {{tema.contenido}}
             </a>
-        </div>
-        <button (click)="eliminarTema(tema.id)" id="boton">Eliminar</button>
-        <a [routerLink]="['/tema/edit', tema.id]">
+            <button (click)="eliminarTema(tema.id)" id="boton">Eliminar</button>
+            <a [routerLink]="['/tema/edit', tema.id]">
             <button id="boton">Modificar</button>
-        </a>
+            </a>
+        </div>
     </div>
 
     <button (click)="verFormulario()" id="crearTema">+ Crear Tema</button>

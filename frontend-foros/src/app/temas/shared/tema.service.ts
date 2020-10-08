@@ -63,6 +63,20 @@ export class TemaService {
       );
   }
 
+  deleteTema(id: number) {
+    const url = `${environment.BlogServiceBaseUrl}public/tema/${id}`;
+    return this.http.delete<Tema>(url, {
+      withCredentials: true,
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+      }),
+    })
+    .pipe(
+      retry(5), // Retries 5 times until successful
+      catchError(this.handleError) // Uses this.handleError() to process any error in the request
+    );
+  }
+
   findAll() {
     const url = `${environment.BlogServiceBaseUrl}public/tema`;
     return this.get<Tema[]>(url);
@@ -82,14 +96,6 @@ export class TemaService {
       contenido: tema.contenido,
       foro: tema.foro,
     });
-  }
-
-  deleteTema(id: number) {
-    const url = `${environment.BlogServiceBaseUrl}user/tema/${id}`;
-    return this.http.delete<Tema>(url).pipe(
-      retry(5), // Retries 5 times until successful
-      catchError(this.handleError) // Uses this.handleError() to process any error in the request
-    );
   }
 
   update(tema: Tema) {
