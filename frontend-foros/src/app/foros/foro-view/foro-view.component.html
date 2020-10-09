@@ -1,10 +1,23 @@
 <div id="body">
-    <form (ngSubmit)="doLogin()" id="formularioIngreso">
-        <input type="text" [(ngModel)]="user" name="user">
-        <input type="text" [(ngModel)]="password" name="pass">
-        <button type="submit" id="login">Login</button>
-    </form>
-    <button (click)="logout()">logout</button>
+    <div id="formularioIngreso">
+        <label><strong>Ingresa si quieres ¯\_(ツ)_/¯:</strong></label>
+    </div>
+    <br>
+    <div id="formularioIngreso">
+        <label for="user"><strong>Nombre de usuario</strong></label>
+        <input id="nameFile" type="text" [(ngModel)]="user" name="user" required>
+    </div>
+    <br>
+    <div id="formularioIngreso">
+        <label for="pass"><strong>Contraseña</strong></label>
+        <input id="passFile" type="password" [(ngModel)]="password" name="pass" required>
+    </div>
+    <br>
+    <div id="formularioIngreso">
+        <button id="button_login" (click)="doLogin()">Login</button>
+        <button id="button_logout" (click)="logout()">Logout</button>
+    </div>
+
     <pre>
         {{message}}
     </pre>
@@ -14,9 +27,8 @@
     <div *ngFor="let foro of foros">
         <div id="foros">
             <a [routerLink]="['/tema/view', foro.id]">
-                {{foro.name}}<br>
+                {{foro.name}}<br></a>
                 {{foro.descripcion}}
-            </a>
         </div>
         <button (click)="eliminarPost(foro.id)" id="boton">Eliminar</button>
         <a [routerLink]="['/foro/edit', foro.id]">
@@ -25,7 +37,7 @@
     </div>
 
     <button (click)="verFormulario()" id="crearForo" *ngIf="mostrarBotonCrearForo">+ Crear Foro</button>
-    <a [routerLink]="['/foro/moderar']"><button id="mostrarModerar">+ Moderar contenidos</button></a>
+    <a [routerLink]="['/foro/moderar']"><button id="mostrarModerar">Moderar contenidos</button></a>
     <form (ngSubmit)="agregarForo()" *ngIf="mostrarFormulario">
         <label for="txtNombre">Nombre:</label>
         <input id="txtNombre" type="text" name="nombre" [(ngModel)]="foro.name">

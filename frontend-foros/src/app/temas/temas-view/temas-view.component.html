@@ -1,11 +1,15 @@
 <div>
     <h1>{{foro.name}}</h1>
+    <p>Información este foro:</p>
+    <p *ngIf="!foro.moderado">No requiere moderación</p>
+    <p *ngIf="foro.moderado">Requiere moderación</p>
+    <hr class="rounded">
     <div *ngFor="let tema of temas">
         <div id="temas" *ngIf="tema.aprobado">
             <a [routerLink]="['/comentario/view', tema.id]">
-                {{tema.titulo}}<br>
+                {{tema.titulo}}<br></a>
                 {{tema.contenido}}
-            </a>
+            
             <button (click)="eliminarTema(tema.id)" id="boton">Eliminar</button>
             <a [routerLink]="['/tema/edit', tema.id]">
             <button id="boton">Modificar</button>

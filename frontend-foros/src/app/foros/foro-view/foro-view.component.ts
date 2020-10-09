@@ -15,8 +15,8 @@ export class ForoViewComponent implements OnInit {
   searchId: number = null;
   mostrarBotonCrearForo = true;
 
-  user = 'user';
-  password = 'password';
+  user = '';
+  password = '';
 
   nombre = '';
   tipo = '';
@@ -71,11 +71,11 @@ export class ForoViewComponent implements OnInit {
   }
 
   eliminarPost(id: number): void {
-    window.location.reload();
+    //window.location.reload(); kk feo
     this.foroService.deletePost(id).subscribe(
       (result) => {
         console.log(result);
-        this.router.navigate([`/public/foro`]);
+        this.ngOnInit();
       },
       (error) => {
         console.log(error);

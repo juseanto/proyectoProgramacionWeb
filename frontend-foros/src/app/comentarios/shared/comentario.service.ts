@@ -80,12 +80,13 @@ export class ComentarioService {
   }
 
   create(comentario: Comentario) {
-    const url = `${environment.BlogServiceBaseUrl}user/comentario`;
+    const url = `${environment.BlogServiceBaseUrl}public/comentario`;
     return this.post(url, {
       contenido: comentario.contenido,
       tema: comentario.tema,
       creador: comentario.creador,
       respuesta: comentario.respuesta,
+      aprobado: comentario.aprobado
     });
   }
 

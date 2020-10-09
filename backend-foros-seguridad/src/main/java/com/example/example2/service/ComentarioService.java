@@ -37,7 +37,7 @@ public class ComentarioService {
     }
 
     // crear un nuevo comentario
-    @PostMapping("user/comentario")
+    @PostMapping("public/comentario")
     Comentario createComentario(@RequestBody Comentario comentario) {
         return repository.save(comentario);
     }

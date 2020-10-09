@@ -51,11 +51,11 @@ values
 insert into foro
     (id, name, descripcion, moderado)
 values
-    (-1, 'Foro1', 'DescricionForo1', false);
+    (-1, 'Foro1', 'DescricionForo1', true);
 insert into foro
     (id, name, descripcion, moderado)
 values
-    (-2, 'Foro2', 'DescricionForo2', false);
+    (-2, 'Foro2', 'DescricionForo2', true);
 insert into foro
     (id, name, descripcion, moderado)
 values

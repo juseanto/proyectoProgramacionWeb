@@ -95,6 +95,7 @@ export class TemaService {
       titulo: tema.titulo,
       contenido: tema.contenido,
       foro: tema.foro,
+      aprobado: tema.aprobado
     });
   }
 

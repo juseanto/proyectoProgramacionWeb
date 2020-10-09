@@ -61,3 +61,8 @@ form {
   font-size: 20px;
   margin-bottom: 20px;
 }
+
+hr.rounded {
+  border-top: 8px solid rgba(93, 126, 218, 0.664);
+  border-radius: 5px;
+}

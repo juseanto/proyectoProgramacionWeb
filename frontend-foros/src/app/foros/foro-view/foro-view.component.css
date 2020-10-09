@@ -51,14 +51,6 @@ form {
   padding-left: 20px;
 }
 
-#formularioIngreso {
-  width: 100%;
-  border-width: 0px;
-  background-color: #efe2ba;
-  display: inline;
-  margin-right: 0px;
-}
-
 #txtNombre {
   border: 2px solid black;
   width: 300px;
@@ -76,4 +68,64 @@ form {
 #subirForo {
   font-size: 20px;
   margin-bottom: 20px;
+}
+
+
+/*Detalles de estilo*/
+
+#formularioIngreso {
+  border-width: 0px;
+  background-color: #efe2ba;
+  display: inline;
+  margin-right: 0px;
+  padding-left: 50px;
+}
+
+#button_login {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+#button_logout {
+  background-color: #af4c4c;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+}
+
+#button_logout:hover {
+  opacity: 0.8;
+}
+
+#button_login:hover {
+  opacity: 0.8;
+}
+
+#passFile{
+  margin-left: 100px;
+}
+
+#nameFile{
+  margin-left: 30px;
+}
+
+#mostrarModerar{
+  border: 2px solid black;
+  border-radius: 30px;
+  font-size: 30px;
+  color: black;
+  padding: 10px;
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }

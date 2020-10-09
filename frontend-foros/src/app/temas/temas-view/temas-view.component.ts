@@ -48,6 +48,8 @@ export class TemasViewComponent implements OnInit {
 
   agregarTema(): void {
     this.tema.foro = this.foro;
+    /**Si el foro tiene que ser moderado, el tema aun no esta aprobado y no se mostrara */
+    this.tema.aprobado = !this.foro.moderado;
     this.temaService.create(this.tema).subscribe(
       (result) => {
         console.log(result);

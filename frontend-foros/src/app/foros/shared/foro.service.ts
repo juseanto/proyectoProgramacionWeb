@@ -67,7 +67,7 @@ export class ForoService {
   }
 
   deletePost(id: number) {
-    const url = `${environment.BlogServiceBaseUrl}user/foro/${id}`;
+    const url = `${environment.BlogServiceBaseUrl}public/foro/${id}`;
     return this.http.delete<Foro>(url).pipe(
       retry(5), // Retries 5 times until successful
       catchError(this.handleError) // Uses this.handleError() to process any error in the request

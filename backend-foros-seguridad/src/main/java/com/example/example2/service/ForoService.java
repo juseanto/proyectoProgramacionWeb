@@ -67,7 +67,7 @@ public class ForoService {
     }
 
     // borrar un foro
-    @DeleteMapping("user/foro/{id}")
+    @DeleteMapping("public/foro/{id}")
     void deleteForo(@PathVariable Long id) {
         if (repository.existsById(id)) {
             repository.deleteById(id);

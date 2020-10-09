@@ -100,6 +100,8 @@ export class ComentariosViewComponent implements OnInit {
   agregarComentario(): void {
     this.comentario.tema = this.tema;
     this.comentario.creador = this.restClient.nombre;
+    /**El estado por defecto de aprobacion del comentario tambien depende del estado de moderacion del foro */
+    this.comentario.aprobado = !this.tema.foro.moderado;
     this.comentarioService.create(this.comentario).subscribe(
       (result) => {
         console.log(result);
