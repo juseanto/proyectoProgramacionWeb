@@ -47,7 +47,9 @@ public class TemaService {
         Tema tema = findTema(id);
         tema.setTitulo(temaData.getTitulo());
         tema.setContenido(temaData.getContenido());
+        tema.setFecha(temaData.getFecha());
         tema.setAprobado(temaData.getAprobado());
+        tema.setVotos(temaData.getVotos());
 
         return repository.save(tema);
     }

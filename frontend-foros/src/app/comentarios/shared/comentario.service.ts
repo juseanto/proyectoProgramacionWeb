@@ -94,8 +94,14 @@ export class ComentarioService {
     const url = `${environment.BlogServiceBaseUrl}public/comentario/${comentario.id}`;
     console.log("Actualizacion de estado: " + comentario.aprobado);
     return this.put(url, {
+      id: comentario.id,
       contenido: comentario.contenido,
-      aprobado: comentario.aprobado
+      tema: comentario.tema,
+      creador: comentario.creador,
+      respuesta: comentario.respuesta,
+      fecha: comentario.fecha,
+      aprobado: comentario.aprobado,
+      votos: comentario.votos
     });
   }
 }

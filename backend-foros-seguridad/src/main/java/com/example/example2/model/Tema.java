@@ -23,6 +23,7 @@ public class Tema {
     private String contenido;
     private String fecha;
     private boolean aprobado;
+    private int votos;
 
     @ManyToOne
     private Foro foro;
@@ -99,6 +100,17 @@ public class Tema {
      */
     public void setAprobado(boolean aprobado) {
         this.aprobado = aprobado;
+    }
+
+    public int getVotos() {
+        return this.votos;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setVotos(int votos) {
+        this.votos = votos;
     }
 
     /**

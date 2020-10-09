@@ -9,10 +9,14 @@
             <p>
                 {{comentario.contenido}}
             </p>
+            <p>
+                Votos: {{comentario.votos}}
+            </p>
             <p *ngIf="comentario.respuesta">
                 Respuesta:{{comentario.respuesta}}
             </p>
-            <button (click)="eliminarComentario(comentario.id)" id="boton">Eliminar</button>
+            <button (click)="votoArriba(comentario)" id="boton">Voto arriba</button>
+            <button (click)="votoAbajo(comentario)" id="boton">Voto abajo</button>
         <a [routerLink]="['/comentario/edit', comentario.id]">
             <button id="boton">Modificar</button>
         </a>

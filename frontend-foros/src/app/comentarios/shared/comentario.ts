@@ -8,5 +8,6 @@ export class Comentario {
     public respuesta: string,
     public fecha: string ,
     public aprobado: boolean,
+    public votos: number
   ) {}
 }

@@ -15,7 +15,7 @@ import { RestClientService } from '../../services/rest-client.service';
 export class TemasViewComponent implements OnInit {
   temas: Tema[] = [];
   foro: Foro = new Foro(undefined, undefined, undefined, undefined);
-  tema: Tema = new Tema(undefined, undefined, undefined, undefined, undefined, undefined);
+  tema: Tema = new Tema(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
   mostrarFormulario = false;
   constructor(
     private temaService: TemaService,
@@ -66,6 +66,37 @@ export class TemasViewComponent implements OnInit {
   eliminarTema(id: number): void {
     // https://netbasal.com/when-to-unsubscribe-in-angular-d61c6b21bad3
     this.temaService.deleteTema(id).subscribe(
+      (result) => {
+        console.log(result);
+        //window.location.reload();
+        this.ngOnInit();
+      },
+      (error) => {
+        console.log(error);
+        //this.errorMessage = 'Connection error';
+      }
+    );
+  }
+
+  /**Votacion */
+  votarArriba(temaSeleccionado: Tema){
+    temaSeleccionado.votos = temaSeleccionado.votos + 1;
+    this.temaService.update(temaSeleccionado).subscribe(
+      (result) => {
+        console.log(result);
+        //window.location.reload();
+        this.ngOnInit();
+      },
+      (error) => {
+        console.log(error);
+        //this.errorMessage = 'Connection error';
+      }
+    );
+  }
+
+  votoAbajo(temaSeleccionado: Tema){
+    temaSeleccionado.votos = temaSeleccionado.votos - 1;
+    this.temaService.update(temaSeleccionado).subscribe(
       (result) => {
         console.log(result);
         //window.location.reload();

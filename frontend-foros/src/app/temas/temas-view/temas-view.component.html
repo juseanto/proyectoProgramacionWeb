@@ -9,7 +9,11 @@
             <a [routerLink]="['/comentario/view', tema.id]">
                 {{tema.titulo}}<br></a>
                 {{tema.contenido}}
+                <br>
+                Votos: {{tema.votos}}
             
+            <button id="boton" (click)="votarArriba(tema)">Voto arriba</button>
+            <button id="boton" (click)="votoAbajo(tema)">Voto abajo</button>
             <button (click)="eliminarTema(tema.id)" id="boton">Eliminar</button>
             <a [routerLink]="['/tema/edit', tema.id]">
             <button id="boton">Modificar</button>

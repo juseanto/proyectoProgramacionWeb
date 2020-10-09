@@ -106,7 +106,9 @@ export class TemaService {
     return this.put(url, {
       titulo: tema.titulo,
       contenido: tema.contenido,
+      fecha: tema.fecha,
       aprobado: tema.aprobado,
+      votos: tema.votos
     });
   }
 

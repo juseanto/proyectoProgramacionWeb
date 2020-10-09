@@ -49,8 +49,12 @@ public class ComentarioService {
         Comentario comentario = findComentario(id);
         
         comentario.setContenido(comentarioData.getContenido());
+        comentario.setTema(comentarioData.getTema());
+        comentario.setCreador(comentarioData.getCreador());
         comentario.setRespuesta(comentarioData.getRespuesta());
+        comentario.setFecha(comentarioData.getFecha());
         comentario.setAprobado(comentarioData.getAprobado());
+        comentario.setVotos(comentarioData.getVotos());
 
         return repository.save(comentario);
     }

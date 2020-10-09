@@ -21,6 +21,7 @@ export class ComentariosViewComponent implements OnInit {
     undefined,
     undefined,
     undefined,
+    undefined,
     undefined
   );
   respuesta: Comentario = new Comentario(
@@ -30,9 +31,10 @@ export class ComentariosViewComponent implements OnInit {
     undefined,
     undefined,
     undefined,
+    undefined,
     undefined
   );
-  tema: Tema = new Tema(undefined, undefined, undefined, undefined, undefined, undefined);
+  tema: Tema = new Tema(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
   mostrarFormulario = false;
   boxRespuesta = false;
   constructor(
@@ -128,4 +130,33 @@ export class ComentariosViewComponent implements OnInit {
       }
     );
   }
+
+  votoAbajo(comentarioSeleccionado: Comentario){
+    comentarioSeleccionado.votos = comentarioSeleccionado.votos - 1;
+    this.comentarioService.update(comentarioSeleccionado).subscribe(
+      (result) => {
+        console.log(result);
+        //window.location.reload();
+        this.ngOnInit();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  votoArriba(comentarioSeleccionado: Comentario){
+    comentarioSeleccionado.votos = comentarioSeleccionado.votos + 1;
+    this.comentarioService.update(comentarioSeleccionado).subscribe(
+      (result) => {
+        console.log(result);
+        //window.location.reload();
+        this.ngOnInit();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
 }

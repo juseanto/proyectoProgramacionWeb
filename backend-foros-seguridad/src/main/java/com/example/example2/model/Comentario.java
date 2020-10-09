@@ -22,6 +22,7 @@ public class Comentario {
     private String respuesta;
     private String fecha;
     private boolean aprobado;
+    private int votos;
 
     @ManyToOne
     private Tema tema;
@@ -110,6 +111,19 @@ public class Comentario {
     public void setAprobado(boolean aprobado) 
     { 
         this.aprobado = aprobado; 
+    }
+
+    public int getVotos() 
+    { 
+        return this.votos; 
+    }
+    
+    /**
+     * @param aprobado de moderacion
+     */
+    public void setVotos(int votos) 
+    { 
+        this.votos = votos; 
     }
 
     /**

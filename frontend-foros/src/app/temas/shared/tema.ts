@@ -1,4 +1,5 @@
 import { Foro } from '../../foros/shared/foro';
+import { ViewportScroller } from '@angular/common';
 export class Tema {
   constructor(
     public id: number,
@@ -6,6 +7,7 @@ export class Tema {
     public contenido: string,
     public fecha: string,
     public aprobado: boolean,
+    public votos: number,
     public foro: Foro
   ) {}
 }
