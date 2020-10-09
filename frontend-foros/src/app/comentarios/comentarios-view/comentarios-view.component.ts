@@ -88,7 +88,7 @@ export class ComentariosViewComponent implements OnInit {
     this.comentarioService.create(this.respuesta).subscribe(
       (result) => {
         console.log(result);
-        window.location.reload();
+        this.ngOnInit();
       },
       (error) => {
         console.error(error);
@@ -105,7 +105,7 @@ export class ComentariosViewComponent implements OnInit {
     this.comentarioService.create(this.comentario).subscribe(
       (result) => {
         console.log(result);
-        window.location.reload();
+        this.ngOnInit();
       },
       (error) => {
         console.error(error);
@@ -119,7 +119,8 @@ export class ComentariosViewComponent implements OnInit {
     this.comentarioService.deleteComentario(id).subscribe(
       (result) => {
         console.log(result);
-        window.location.reload();
+        //window.location.reload();
+        this.ngOnInit();
       },
       (error) => {
         console.log(error);

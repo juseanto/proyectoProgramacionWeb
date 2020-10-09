@@ -53,7 +53,8 @@ export class TemasViewComponent implements OnInit {
     this.temaService.create(this.tema).subscribe(
       (result) => {
         console.log(result);
-        window.location.reload();
+        //window.location.reload();
+        this.ngOnInit();
       },
       (error) => {
         console.error(error);
@@ -67,7 +68,8 @@ export class TemasViewComponent implements OnInit {
     this.temaService.deleteTema(id).subscribe(
       (result) => {
         console.log(result);
-        window.location.reload();
+        //window.location.reload();
+        this.ngOnInit();
       },
       (error) => {
         console.log(error);

@@ -56,8 +56,9 @@ export class ForoViewComponent implements OnInit {
     this.foroService.create(this.foro).subscribe(
       (result) => {
         console.log(result);
-        window.location.reload();
+        //window.location.reload();
         //this.router.navigate([`/public/foro`]);
+        this.ngOnInit();
       },
       (error) => {
         console.error(error);
