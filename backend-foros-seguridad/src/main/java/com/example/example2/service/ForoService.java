@@ -47,13 +47,13 @@ public class ForoService {
     }
 
     // crear un nuevo foro
-    @PostMapping("admin/foro")
+    @PostMapping("public/foro")
     Foro createForo(@RequestBody Foro foro) {
         return repository.save(foro);
     }
 
     // modificarInformacionAcercaDeUnForo
-    @PutMapping("user/foro/{id}")
+    @PutMapping("public/foro/{id}")
     Foro updateForo(@PathVariable Long id, @RequestBody Foro foroData) {
 
         Foro foro = findForo(id);
