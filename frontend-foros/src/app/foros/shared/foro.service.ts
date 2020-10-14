@@ -81,7 +81,7 @@ export class ForoService {
   }
 
   create(foro: Foro) {
-    const url = `http://localhost:8080/admin/foro`;
+    const url = `http://localhost:8080/public/foro`;
     return this.post(url, {
       name: foro.name,
       descripcion: foro.descripcion,

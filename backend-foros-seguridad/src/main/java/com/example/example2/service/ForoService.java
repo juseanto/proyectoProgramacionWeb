@@ -47,7 +47,7 @@ public class ForoService {
     }
 
     // crear un nuevo foro
-    @PostMapping("admin/foro")
+    @PostMapping("public/foro")
     Foro createForo(@RequestBody Foro foro) {
         return repository.save(foro);
     }

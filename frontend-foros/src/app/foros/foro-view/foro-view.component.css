@@ -6,11 +6,6 @@
   display: inline;
 }
 
-#body {
-  background-color: #efe2ba;
-  width: 100vw;
-  height: 100vh;
-}
 
 #foros {
   border-width: 2px;
@@ -20,6 +15,12 @@
   margin: 30px 40px 10px 30px;
   padding: 35px;
   border-radius: 20px;
+}
+
+.fondo_aux{
+  width: 100vw;
+  height: 100vh;
+  background-color: #efe2ba;
 }
 
 a {

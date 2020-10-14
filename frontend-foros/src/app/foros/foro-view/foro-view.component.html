@@ -1,4 +1,4 @@
-<div id="body">
+<body>
     <div id="formularioIngreso">
         <label><strong>Ingresa si quieres ¯\_(ツ)_/¯:</strong></label>
     </div>
@@ -19,11 +19,11 @@
     </div>
 
     <pre>
-        {{message}}
-    </pre>
+            {{message}}
+        </pre>
     <pre>
-        Tipo: {{tipo}}
-    </pre>
+            Tipo: {{tipo}}
+        </pre>
     <div *ngFor="let foro of foros">
         <div id="foros">
             <a [routerLink]="['/tema/view', foro.id]">
@@ -52,6 +52,6 @@
         <br>
         <button type="submit" id="subirForo">Crear</button>
     </form>
-
+    
     <router-outlet></router-outlet>
-</div>
+</body>
