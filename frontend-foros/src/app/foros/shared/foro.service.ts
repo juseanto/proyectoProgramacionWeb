@@ -67,7 +67,7 @@ export class ForoService {
   }
 
   deletePost(id: number) {
-    const url = `${environment.BlogServiceBaseUrl}public/foro/${id}`;
+    const url = `http://localhost:8080/public/foro/${id}`;
     return this.http.delete<Foro>(url).pipe(
       retry(5), // Retries 5 times until successful
       catchError(this.handleError) // Uses this.handleError() to process any error in the request
@@ -85,12 +85,12 @@ export class ForoService {
     return this.post(url, {
       name: foro.name,
       descripcion: foro.descripcion,
-      moderado: foro.moderado
+      moderado: foro.moderado,
     });
   }
 
   update(foro: Foro) {
-    const url = `${environment.BlogServiceBaseUrl}user/foro/${foro.id}`;
+    const url = `http://localhost:8080/public/foro/${foro.id}`;
     return this.put(url, {
       name: foro.name,
       descripcion: foro.descripcion,

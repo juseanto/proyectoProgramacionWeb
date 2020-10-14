@@ -54,25 +54,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
-                // Uncomment this to enable H2 console
-                .headers().frameOptions().disable()
-                .and()
-                .exceptionHandling().authenticationEntryPoint(entryPoint).and().authorizeRequests()
-                .antMatchers("/public/**", "/login/**").permitAll()
-                // Uncomment this to enable H2 console
-                .antMatchers("/h2/**").permitAll()
-                /*
-                 * .antMatchers("/admin/**").hasRole("ADMIN")//
-                 * .anyRequest().authenticated().and().formLogin()
-                 * .antMatchers("/user/**").hasRole("USER").antMatchers("/moderator/**").hasRole
-                 * ("MODERATOR")
-                 */.antMatchers("/user/**").hasRole("USER").anyRequest().authenticated().and().formLogin()
+        http.cors().and().csrf().disable().headers().frameOptions().disable().and().exceptionHandling()
+                .authenticationEntryPoint(entryPoint).and().authorizeRequests().antMatchers("/public/**", "/login/**")
+                .permitAll().antMatchers("/h2/**").permitAll()
+
+                .antMatchers("/admin/**").hasRole("ADMIN").antMatchers("/user/**").hasRole("USER")
+                .antMatchers("/moderador/**").hasRole("MODERATOR").anyRequest().authenticated().and().formLogin()
                 .successHandler(successHandler).failureHandler(new SimpleUrlAuthenticationFailureHandler()).and()
-                .logout().logoutSuccessHandler(logoutSuccessHandler).and()
-        // Uncomment this to enable H2 console
-        // .headers().frameOptions().disable()
-        ;
+                .logout().logoutSuccessHandler(logoutSuccessHandler).and();
     }
 
     /**

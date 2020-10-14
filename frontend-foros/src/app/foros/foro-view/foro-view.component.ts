@@ -13,7 +13,9 @@ export class ForoViewComponent implements OnInit {
   foros: Foro[] = [];
   mostrarFormulario = false;
   searchId: number = null;
-  mostrarBotonCrearForo = true;
+  mostrarBotonCrearForo = false;
+  mostrarBotonModerar = false;
+  mostrarModificar = false;
 
   user = '';
   password = '';
@@ -25,8 +27,6 @@ export class ForoViewComponent implements OnInit {
 
   foro: Foro = new Foro(undefined, undefined, undefined, false);
 
-  mostrarEliminar = false;
-  mostrarModificar = false;
   constructor(
     private foroService: ForoService,
     private route: ActivatedRoute,
@@ -37,9 +37,10 @@ export class ForoViewComponent implements OnInit {
   ngOnInit(): void {
     this.findForos();
     this.nombre = this.restClient.nombre;
-    this.tipo = this.restClient.nombre;
-    this.soyAdmin();
+    this.tipo = this.restClient.tipo;
     this.soyUser();
+    this.soyAdmin();
+    this.soyModerador();
   }
 
   findForos(): void {
@@ -56,8 +57,6 @@ export class ForoViewComponent implements OnInit {
     this.foroService.create(this.foro).subscribe(
       (result) => {
         console.log(result);
-        //window.location.reload();
-        //this.router.navigate([`/public/foro`]);
         this.ngOnInit();
       },
       (error) => {
@@ -72,7 +71,6 @@ export class ForoViewComponent implements OnInit {
   }
 
   eliminarPost(id: number): void {
-    //window.location.reload(); kk feo
     this.foroService.deletePost(id).subscribe(
       (result) => {
         console.log(result);
@@ -91,14 +89,9 @@ export class ForoViewComponent implements OnInit {
         this.message = 'Login Ok';
         this.nombre = this.user;
         this.restClient.nombre = this.user;
-        /*if (this.soyUser()) {
-          console.log('usuario');
-          this.mostrarBotonCrearForo = false;
-        }
-        if (this.soyAdmin()) {
-          console.log('admin');
-          this.mostrarBotonCrearForo = true;
-        }*/
+        this.soyAdmin();
+        this.soyUser();
+        this.soyModerador();
       },
       (error) => {
         console.error(error);
@@ -127,9 +120,25 @@ export class ForoViewComponent implements OnInit {
   soyAdmin(): boolean {
     this.restClient.soyAdmin().subscribe(
       (data) => {
-        this.tipo = 'Eres admin';
-        this.restClient.tipo = 'Eres admin';
+        this.tipo = 'Admin';
+        this.restClient.tipo = 'Admin';
         this.mostrarBotonCrearForo = true;
+        this.mostrarModificar = true;
+        this.mostrarBotonModerar = true;
+      },
+      (error) => {}
+    );
+    return false;
+  }
+
+  soyModerador(): boolean {
+    this.restClient.soyModerador().subscribe(
+      (data) => {
+        this.tipo = 'Moderador';
+        this.restClient.tipo = 'Moderador';
+        this.mostrarBotonCrearForo = false;
+        this.mostrarModificar = false;
+        this.mostrarBotonModerar = true;
       },
       (error) => {}
     );
@@ -139,20 +148,18 @@ export class ForoViewComponent implements OnInit {
   soyUser(): boolean {
     this.restClient.soyUser().subscribe(
       (data) => {
-        this.tipo = 'Eres user';
-        this.restClient.tipo = 'Eres user';
-        /*quemado!!!!*/
-        this.mostrarBotonCrearForo = true;
-        this.mostrarEliminar = true;
-        this.mostrarModificar = true;
+        this.tipo = 'User';
+        this.restClient.tipo = 'User';
+        this.mostrarBotonCrearForo = false;
+        this.mostrarModificar = false;
+        this.mostrarBotonModerar = false;
       },
       (error) => {}
     );
     return false;
   }
 
-  moderarForo()
-  {
+  moderarForo() {
     this.foro.moderado = !this.foro.moderado;
   }
 }

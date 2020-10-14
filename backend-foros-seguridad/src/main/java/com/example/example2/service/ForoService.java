@@ -53,7 +53,7 @@ public class ForoService {
     }
 
     // modificarInformacionAcercaDeUnForo
-    @PutMapping("user/foro/{id}")
+    @PutMapping("public/foro/{id}")
     Foro updateForo(@PathVariable Long id, @RequestBody Foro foroData) {
 
         Foro foro = findForo(id);
@@ -83,6 +83,11 @@ public class ForoService {
 
     @GetMapping("user/soyUser")
     Boolean soyUser() {
+        return true;
+    }
+
+    @GetMapping("moderador/soyModerador")
+    Boolean soyModerador() {
         return true;
     }
 }
