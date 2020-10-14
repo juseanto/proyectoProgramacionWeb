@@ -17,9 +17,9 @@
 
             <button id="boton" (click)="votarArriba(tema)" *ngIf="mostrarVotos">Voto arriba</button>
             <button id="boton" (click)="votoAbajo(tema)" *ngIf="mostrarVotos">Voto abajo</button>
-            <button (click)="eliminarTema(tema.id)" id="boton">Eliminar</button>
+            <button (click)="eliminarTema(tema.id)" id="boton" *ngIf="mostrarVotos">Eliminar</button>
             <a [routerLink]="['/tema/edit', tema.id]">
-                <button id="boton">Modificar</button>
+                <button id="boton" *ngIf="mostrarVotos">Modificar</button>
             </a>
         </div>
     </div>
