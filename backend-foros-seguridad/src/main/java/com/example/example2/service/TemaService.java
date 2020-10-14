@@ -63,7 +63,7 @@ public class TemaService {
 
     // crear un nuevo tema
     // @PostMapping("user/tema")
-    @PostMapping("user/tema")
+    @PostMapping("public/tema")
     Tema createTema(@RequestBody Tema tema) {
         System.out.println("!!!!!!!!!!!!!!!!! Creando un tema " + tema.getId());
         return repository.save(tema);

@@ -27,12 +27,6 @@ public class Foro {
     @JsonIgnore // https://www.baeldung.com/jackson-bidirectional-relationships-and-infinite-recursion
     private List<Tema> temas;
 
-    // @ManyToOne
-    // private Usuario moderador;
-
-    // @ManyToOne
-    // private Usuario creadorForo;
-
     /**
      * @return the id
      */
