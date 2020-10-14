@@ -21,9 +21,9 @@
             <button (click)="votoArriba(comentario)" id="boton" *ngIf="mostrarVotos">Voto arriba</button>
             <button (click)="votoAbajo(comentario)" id="boton" *ngIf="mostrarVotos">Voto abajo</button>
             <a [routerLink]="['/comentario/edit', comentario.id]">
-                <button id="boton">Modificar</button>
+                <button id="boton" *ngIf="mostrarVotos">Modificar</button>
             </a>
-            <button (click)="mostrarCajaRespuesta(comentario.id)" id="boton">Responder</button>
+            <button (click)="mostrarCajaRespuesta(comentario.id)" id="boton" *ngIf="mostrarVotos">Responder</button>
         </div>
         <form (ngSubmit)="responderComentario(comentario.id)" *ngIf="!comentario.id">
             <label for="txtContenido">Contenido: </label>
