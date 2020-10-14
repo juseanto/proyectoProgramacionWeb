@@ -37,6 +37,7 @@ export class ComentariosViewComponent implements OnInit {
   tema: Tema = new Tema(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
   mostrarFormulario = false;
   boxRespuesta = false;
+  fechaActual: string;
   constructor(
     private temaService: TemaService,
     private comentarioService: ComentarioService,
@@ -46,6 +47,7 @@ export class ComentariosViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.fechaActual = new Date().toLocaleDateString();
     this.route.paramMap
       .pipe(switchMap((params) => this.temaService.findById(+params.get('id'))))
       .subscribe((result) => {
@@ -104,6 +106,7 @@ export class ComentariosViewComponent implements OnInit {
     this.comentario.creador = this.restClient.nombre;
     /**El estado por defecto de aprobacion del comentario tambien depende del estado de moderacion del foro */
     this.comentario.aprobado = !this.tema.foro.moderado;
+    this.comentario.fecha = this.fechaActual;
     this.comentarioService.create(this.comentario).subscribe(
       (result) => {
         console.log(result);

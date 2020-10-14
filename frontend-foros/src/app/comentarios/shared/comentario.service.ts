@@ -86,6 +86,7 @@ export class ComentarioService {
       tema: comentario.tema,
       creador: comentario.creador,
       respuesta: comentario.respuesta,
+      fecha: comentario.fecha,
       aprobado: comentario.aprobado
     });
   }

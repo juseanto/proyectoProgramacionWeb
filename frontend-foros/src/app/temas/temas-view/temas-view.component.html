@@ -8,6 +8,9 @@
         <div id="temas" *ngIf="tema.aprobado">
             <a [routerLink]="['/comentario/view', tema.id]">
                 {{tema.titulo}}<br></a>
+                <br>
+                Fecha de creación: {{tema.fecha}}
+                <br>
                 {{tema.contenido}}
                 <br>
                 Votos: {{tema.votos}}
@@ -28,6 +31,8 @@
         <br>
         <label for="txtContenido">Contenido: </label>
         <textarea id="txtContenido" name="contenido" [(ngModel)]="tema.contenido"></textarea>
+        <br>
+        <label for="">Fecha de creación: {{fechaActual}}</label>
         <br>
         <button type="submit" id="subirTema">Crear</button>
     </form>

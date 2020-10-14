@@ -17,6 +17,7 @@ export class TemasViewComponent implements OnInit {
   foro: Foro = new Foro(undefined, undefined, undefined, undefined);
   tema: Tema = new Tema(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
   mostrarFormulario = false;
+  fechaActual: string;
   constructor(
     private temaService: TemaService,
     private foroService: ForoService,
@@ -26,6 +27,8 @@ export class TemasViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.fechaActual = new Date().toLocaleDateString();
+
     this.route.paramMap
       .pipe(switchMap((params) => this.foroService.findById(+params.get('id'))))
       .subscribe((result) => {
@@ -50,6 +53,7 @@ export class TemasViewComponent implements OnInit {
     this.tema.foro = this.foro;
     /**Si el foro tiene que ser moderado, el tema aun no esta aprobado y no se mostrara */
     this.tema.aprobado = !this.foro.moderado;
+    this.tema.fecha = this.fechaActual;
     this.temaService.create(this.tema).subscribe(
       (result) => {
         console.log(result);
@@ -108,13 +112,4 @@ export class TemasViewComponent implements OnInit {
       }
     );
   }
-  /*agregarTema(): void {
-    this.mostrarFormulario = true;
-  }
-
-  crearTema(): void {
-    this.temaService.crearTema(this.titulo, this.contenido, this.idForo);
-    let idF = parseInt(this.idForo);
-    this.temas = this.temaService.buscarTemas(idF);
-  }*/
 }
