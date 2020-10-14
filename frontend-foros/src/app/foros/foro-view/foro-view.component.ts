@@ -110,6 +110,9 @@ export class ForoViewComponent implements OnInit {
         this.message = 'Logout Ok';
         this.tipo = '';
         this.restClient.tipo = '';
+        this.mostrarBotonCrearForo = false;
+        this.mostrarModificar = false;
+        this.mostrarBotonModerar = false;
       },
       (error) => {
         this.message = 'Logout Fallido';

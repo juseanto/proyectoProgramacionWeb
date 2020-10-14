@@ -14,6 +14,9 @@ import { RestClientService } from '../../services/rest-client.service';
 })
 export class ComentariosViewComponent implements OnInit {
   comentarios: Comentario[] = [];
+
+  mostrarCrear = false;
+
   comentario: Comentario = new Comentario(
     undefined,
     undefined,
@@ -34,10 +37,19 @@ export class ComentariosViewComponent implements OnInit {
     undefined,
     undefined
   );
-  tema: Tema = new Tema(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
+  tema: Tema = new Tema(
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined
+  );
   mostrarFormulario = false;
   boxRespuesta = false;
   fechaActual: string;
+  mostrarVotos = false;
   constructor(
     private temaService: TemaService,
     private comentarioService: ComentarioService,
@@ -64,6 +76,10 @@ export class ComentariosViewComponent implements OnInit {
           (error) => console.error(error)
         );
       });
+    if (this.restClient.tipo !== '') {
+      this.mostrarCrear = true;
+      this.mostrarVotos = true;
+    }
   }
 
   verFormulario() {
@@ -134,7 +150,7 @@ export class ComentariosViewComponent implements OnInit {
     );
   }
 
-  votoAbajo(comentarioSeleccionado: Comentario){
+  votoAbajo(comentarioSeleccionado: Comentario) {
     comentarioSeleccionado.votos = comentarioSeleccionado.votos - 1;
     this.comentarioService.update(comentarioSeleccionado).subscribe(
       (result) => {
@@ -148,7 +164,7 @@ export class ComentariosViewComponent implements OnInit {
     );
   }
 
-  votoArriba(comentarioSeleccionado: Comentario){
+  votoArriba(comentarioSeleccionado: Comentario) {
     comentarioSeleccionado.votos = comentarioSeleccionado.votos + 1;
     this.comentarioService.update(comentarioSeleccionado).subscribe(
       (result) => {
@@ -161,5 +177,4 @@ export class ComentariosViewComponent implements OnInit {
       }
     );
   }
-
 }

@@ -15,9 +15,21 @@ import { RestClientService } from '../../services/rest-client.service';
 export class TemasViewComponent implements OnInit {
   temas: Tema[] = [];
   foro: Foro = new Foro(undefined, undefined, undefined, undefined);
-  tema: Tema = new Tema(undefined, undefined, undefined, undefined, undefined, undefined, undefined);
+  tema: Tema = new Tema(
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined
+  );
   mostrarFormulario = false;
   fechaActual: string;
+
+  mostrarCrear = false;
+  mostrarVotos = false;
+
   constructor(
     private temaService: TemaService,
     private foroService: ForoService,
@@ -43,6 +55,11 @@ export class TemasViewComponent implements OnInit {
           (error) => console.error(error)
         );
       });
+
+    if (this.clientService.tipo !== '') {
+      this.mostrarCrear = true;
+      this.mostrarVotos = true;
+    }
   }
 
   verFormulario() {
@@ -83,7 +100,7 @@ export class TemasViewComponent implements OnInit {
   }
 
   /**Votacion */
-  votarArriba(temaSeleccionado: Tema){
+  votarArriba(temaSeleccionado: Tema) {
     temaSeleccionado.votos = temaSeleccionado.votos + 1;
     this.temaService.update(temaSeleccionado).subscribe(
       (result) => {
@@ -98,7 +115,7 @@ export class TemasViewComponent implements OnInit {
     );
   }
 
-  votoAbajo(temaSeleccionado: Tema){
+  votoAbajo(temaSeleccionado: Tema) {
     temaSeleccionado.votos = temaSeleccionado.votos - 1;
     this.temaService.update(temaSeleccionado).subscribe(
       (result) => {

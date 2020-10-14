@@ -18,12 +18,12 @@
             <p *ngIf="comentario.respuesta">
                 Respuesta:{{comentario.respuesta}}
             </p>
-            <button (click)="votoArriba(comentario)" id="boton">Voto arriba</button>
-            <button (click)="votoAbajo(comentario)" id="boton">Voto abajo</button>
-        <a [routerLink]="['/comentario/edit', comentario.id]">
-            <button id="boton">Modificar</button>
-        </a>
-        <button (click)="mostrarCajaRespuesta(comentario.id)" id="boton">Responder</button>
+            <button (click)="votoArriba(comentario)" id="boton" *ngIf="mostrarVotos">Voto arriba</button>
+            <button (click)="votoAbajo(comentario)" id="boton" *ngIf="mostrarVotos">Voto abajo</button>
+            <a [routerLink]="['/comentario/edit', comentario.id]">
+                <button id="boton">Modificar</button>
+            </a>
+            <button (click)="mostrarCajaRespuesta(comentario.id)" id="boton">Responder</button>
         </div>
         <form (ngSubmit)="responderComentario(comentario.id)" *ngIf="!comentario.id">
             <label for="txtContenido">Contenido: </label>
@@ -34,7 +34,7 @@
         </form>
     </div>
 
-    <button (click)="verFormulario()" id="crearComentario">+ Crear Comentario</button>
+    <button (click)="verFormulario()" id="crearComentario" *ngIf="mostrarCrear">+ Crear Comentario</button>
     <form (ngSubmit)="agregarComentario()" *ngIf="mostrarFormulario">
         <label for="txtContenido">Contenido: </label>
         <textarea id="txtContenido" name="contenido" [(ngModel)]="comentario.contenido"></textarea>
