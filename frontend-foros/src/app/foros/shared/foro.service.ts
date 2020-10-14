@@ -67,8 +67,13 @@ export class ForoService {
   }
 
   deletePost(id: number) {
-    const url = `http://localhost:8080/public/foro/${id}`;
-    return this.http.delete<Foro>(url).pipe(
+    const url = `http://localhost:8080/admin/foro/${id}`;
+    return this.http.delete<Foro>(url, {
+      withCredentials: true,
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    }).pipe(
       retry(5), // Retries 5 times until successful
       catchError(this.handleError) // Uses this.handleError() to process any error in the request
     );
@@ -81,7 +86,7 @@ export class ForoService {
   }
 
   create(foro: Foro) {
-    const url = `http://localhost:8080/public/foro`;
+    const url = `http://localhost:8080/admin/foro`;
     return this.post(url, {
       name: foro.name,
       descripcion: foro.descripcion,

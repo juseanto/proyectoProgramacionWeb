@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
  * ForoService
  */
 @RestController
-@CrossOrigin(origins = "*")
 public class ForoService {
 
     @Autowired
@@ -47,7 +46,7 @@ public class ForoService {
     }
 
     // crear un nuevo foro
-    @PostMapping("public/foro")
+    @PostMapping("admin/foro")
     Foro createForo(@RequestBody Foro foro) {
         return repository.save(foro);
     }
@@ -67,7 +66,7 @@ public class ForoService {
     }
 
     // borrar un foro
-    @DeleteMapping("public/foro/{id}")
+    @DeleteMapping("admin/foro/{id}")
     void deleteForo(@PathVariable Long id) {
         if (repository.existsById(id)) {
             repository.deleteById(id);
